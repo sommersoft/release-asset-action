@@ -55,7 +55,7 @@ async function run() {
       }
   }else{
       console.log(`context.payload.release == True`)
-      url= core.getInput('release-url', {required: false}) || context.payload.release.html_url;
+      url= core.getInput('release-url', {required: false}) || context.payload.release.url;
   }
 
   console.log(`url: ${url}`);
