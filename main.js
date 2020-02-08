@@ -47,20 +47,14 @@ async function run() {
 
   let url;
   if (! context.payload.release) {
-      console.log(`context.payload.release == False`);
       url = core.getInput('release-url', {required: false});
       if(!url){
 	core.warning("No release URL, skipping. This action requires either a release URL passed in or run as part of a release event");
         return;
       }
   }else{
-      console.log(`context.payload.release == True, so grab url out of context.`)
-      url= core.getInput('release-url', {required: false}) || context.payload.release.upload_url;
+      url= core.getInput('release-url', {required: false}) || context.payload.release.html_url;
   }
-
-  console.log(`original was falling back to context.payload.release.html_url: ${context.payload.release.html_url}`)
-  console.log(`I changed it to use:`)
-  console.log(`- context.payload.release.upload_url: ${context.payload.release.upload_url}`);
 
   console.log(`url passed to upload func: ${url}`);
 
