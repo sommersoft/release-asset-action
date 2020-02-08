@@ -47,12 +47,14 @@ async function run() {
 
   let url;
   if (! context.payload.release) {
+      console.log(`context.payload.release == False`);
       url = core.getInput('release-url', {required: false});
       if(!url){
 	core.warning("No release URL, skipping. This action requires either a release URL passed in or run as part of a release event");
         return;
       }
   }else{
+      console.log(`context.payload.release == True`)
       url= core.getInput('release-url', {required: false}) || context.payload.release.html_url;
   }
 
