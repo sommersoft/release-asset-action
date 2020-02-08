@@ -60,7 +60,7 @@ async function run() {
 
   console.log(`url: ${url}`);
 
-  console.log(`context.payload.release.release.url: ${context.payload.release.release.url} `);
+  console.log(`context.payload.release.url: ${context.payload.release.url}`);
 
   core.setOutput('url', url );
 
