@@ -54,13 +54,15 @@ async function run() {
         return;
       }
   }else{
-      console.log(`context.payload.release == True`)
+      console.log(`context.payload.release == True, so grab url out of context.`)
       url= core.getInput('release-url', {required: false}) || context.payload.release.upload_url;
   }
 
-  console.log(`url: ${url}`);
+  console.log(`original was falling back to context.payload.release.html_url: ${context.payload.release.html_url}`)
+  console.log(`I changed it to use:`)
+  console.log(`- context.payload.release.upload_url: ${context.payload.release.upload_url}`);
 
-  console.log(`context.payload.release.upload_url: ${context.payload.release.upload_url}`);
+  console.log(`url passed to upload func: ${url}`);
 
   core.setOutput('url', url );
 
