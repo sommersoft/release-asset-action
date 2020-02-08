@@ -58,7 +58,9 @@ async function run() {
       url= core.getInput('release-url', {required: false}) || context.payload.release.html_url;
   }
 
-  console.log(`release-url: ${url}`);
+  console.log(`url: ${url}`);
+
+  console.log(`context.payload.release.release.url: ${context.payload.release.release.url} `)
 
   core.setOutput('url', url );
 
