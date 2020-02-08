@@ -48,17 +48,19 @@ async function run() {
   let url;
   if (! context.payload.release) {
       url = core.getInput('release-url', {required: false});
+      html_url = url;
       if(!url){
 	core.warning("No release URL, skipping. This action requires either a release URL passed in or run as part of a release event");
         return;
       }
   }else{
-      url= core.getInput('release-url', {required: false}) || context.payload.release.html_url;
+      url = core.getInput('release-url', {required: false}) || context.payload.release.html_url;
+      html_url = context.payload.release.html_url;
   }
 
   console.log(`url passed to upload func: ${url}`);
 
-  core.setOutput('url', url );
+  core.setOutput('url', html_url );
 
   var list = [];
 
