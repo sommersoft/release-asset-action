@@ -54,7 +54,7 @@ async function run() {
         return;
       }
   }else{
-      url = core.getInput('release-url', {required: false}) || context.payload.release.html_url;
+      url = core.getInput('release-url', {required: false}) || context.payload.release.upload_url;
       html_url = context.payload.release.html_url;
   }
 
