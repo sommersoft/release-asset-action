@@ -55,12 +55,12 @@ async function run() {
       }
   }else{
       console.log(`context.payload.release == True`)
-      url= core.getInput('release-url', {required: false}) || context.payload.release.url;
+      url= core.getInput('release-url', {required: false}) || context.payload.release.upload_url;
   }
 
   console.log(`url: ${url}`);
 
-  console.log(`context.payload.release.url: ${context.payload.release.url}`);
+  console.log(`context.payload.release.upload_url: ${context.payload.release.upload_url}`);
 
   core.setOutput('url', url );
 
